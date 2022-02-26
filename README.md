@@ -1,2 +1,2 @@
 # DPG-Simple-Lagswitch
-# Simple internet disbabler for windows
+# Simple lagswitch/internet disabler for windows
