@@ -66,7 +66,7 @@ with dpg.window(width = w_width, height = w_height, no_title_bar=True, no_resize
         dpg.add_text("Network Adapter: ")
         dpg.add_combo(label='', tag='netadap_combo', items=net_adapters, default_value=net_adapters[0], callback=netadap_cb, width=120, pos=(310, 40))
 
-        dpg.add_checkbox(label = 'Use all network adapters')
+        #dpg.add_checkbox(label = 'Use all network adapters')
         
         lag_text = dpg.add_text('Lagging = False', pos=(320, 196))
 
@@ -86,12 +86,12 @@ with dpg.window(width = w_width, height = w_height, no_title_bar=True, no_resize
 
 apply_main_theme()
 
-show_demo()
-dpg.show_style_editor()
+#show_demo()
+#dpg.show_style_editor()
 
-dpg.create_viewport(title = 'Simple ', width = 600, height = 400)
+dpg.create_viewport(title = 'Simple ', width = w_width+16, height = w_height+38)
 dpg.setup_dearpygui()
 dpg.show_viewport()
-#dpg.set_primary_window(mainw, True)
+dpg.set_primary_window(mainw, True)
 dpg.start_dearpygui()
 dpg.destroy_context()
