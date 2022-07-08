@@ -54,7 +54,6 @@ def apply_tab_button_inactive(item):
             dpg.add_theme_color(dpg.mvThemeCol_Button, (0, 0, 0, 0))  
     dpg.bind_item_theme(item, tab_button_theme)
 
-
 def maincol_cb(sender, data):
     global main_bg_col
     main_bg_col = (data[0]*255, data[1]*255, data[2]*255, data[3]*255)

@@ -1,23 +1,31 @@
 import dearpygui.dearpygui as dpg
 from dearpygui.demo import show_demo
 from themes import *
-from animations import *
+from network import *
 
 #DearPyGui Library
 #https://github.com/hoffstadt/DearPyGui#installation
 
 w_width = 460
 w_height = 280
+net_adapters = get_adapters()
+selected_adapter = net_adapters[0]
 
 dpg.create_context()
 
-def start_lag():
+def netadap_cb(sender):
+    print(dpg.get_value(sender))
+
+def start_lag(sender):
     dpg.set_value(lag_text, 'Lagging = True')
     dpg.configure_item(lag_text, color=(95, 255, 95))
+    disable_internet(dpg.get_value('netadap_combo'))
 
-def stop_lag():
+def stop_lag(sender, data):
     dpg.set_value(lag_text, 'Lagging = False')
     dpg.configure_item(lag_text, color=text_col)
+    enable_internet(dpg.get_value('netadap_combo'))
+
 
 def main_tab_cb(sender):
     apply_tab_button_active(menu_b1)
@@ -56,7 +64,7 @@ with dpg.window(width = w_width, height = w_height, no_title_bar=True, no_resize
         dpg.add_text("Keybind: ")
         dpg.add_combo(label='', items=['A', 'B'], width=120, pos=(310, 10))
         dpg.add_text("Network Adapter: ")
-        dpg.add_combo(label='', items=['A', 'B'], width=120, pos=(310, 40))
+        dpg.add_combo(label='', tag='netadap_combo', items=net_adapters, default_value=net_adapters[0], callback=netadap_cb, width=120, pos=(310, 40))
 
         dpg.add_checkbox(label = 'Use all network adapters')
         
