@@ -2,7 +2,7 @@
 
 Simple network/internet controller for Windows10
 
-Presents a list of connected network adapters and disables/enables the selected adapter via netsh
+Presents a list of connected network adapters and enables/disables the selected adapter via netsh
 
 ![UI Image](https://i.gyazo.com/cf1e9d12f47b19a35470bc8f0f6996a6.png)
 
